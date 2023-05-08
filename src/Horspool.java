@@ -29,10 +29,7 @@ public class Horspool {
 				table.put(htmlFile.substring(i,i+1), k);
 			}
 		}
-		
-		
 		return table;
-		
 	}
 	
 	private boolean isThere(String a, String pattern) {
