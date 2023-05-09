@@ -9,7 +9,7 @@ public class BoyerMoore extends Horspool {
 		this.suffix = generateSuffixTable(this.pattern);
 		
 	}
-	//commentttttttt
+	
 	private HashMap<Integer, Integer> generateSuffixTable(String pattern) {
 		
 		HashMap<Integer, Integer> table = new HashMap<Integer, Integer>();

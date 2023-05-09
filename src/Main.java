@@ -1,3 +1,6 @@
+import java.io.File;
+
+import javax.swing.text.html.HTMLDocument;
 
 public class Main {
 
@@ -9,13 +12,18 @@ public class Main {
 		
 		//System.out.print(bc.getCount());
 		
-		BoyerMoore hp = new BoyerMoore("baobab", "bard loved bananas");
+		File htmlFile = new File("<HTML><BODY>WHICH_FINALLY_HALTS. _ _ AT_THAT POINT </BODY></HTML>");
 		
-		hp.printTable();
+		String text = htmlFile.getPath();
+		System.out.println(text);
 		
-		hp.printSuffixTable();
+		HTMLDocument html = new HTMLDocument();
+		htmlFile.setWritable(true);
+		BruteForce hp = new BruteForce("b", "aaaaaaa");
 		
-		//Son deneme
+		
+		
+		
 
 	}
 

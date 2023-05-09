@@ -20,14 +20,16 @@ public class BruteForce {
 		
 		long startTime = System.currentTimeMillis();
 		
-		for (int i = 0; i<this.htmlFile.length()-2; i++) {	
+		for (int i = 0; i<=this.htmlFile.length() - this.pattern.length(); i++) {	
 			int j = 0;
 			int k = i;
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
 				comprasion ++;
 				if(j+2==this.pattern.length()) count ++;
+				
 				j++;
 				k++;
+				
 			}
 			comprasion ++;
 		}
