@@ -11,9 +11,11 @@ public class Main {
 		
 		hp.printTable();
 		
-		ReadHTML html = new ReadHTML("form_advanced");
+		hp.count();
+		System.out.println(hp.getCompNumber());
+		//ReadHTML html = new ReadHTML("form_advanced");
 		
-		System.out.print(html.htmlContent);
+		//System.out.print(html.htmlContent);
 		
 		
 	}
