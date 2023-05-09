@@ -15,7 +15,7 @@ public class Main {
 		
 		hp.printSuffixTable();
 		
-		//sadnakjsd
+		//asdadsad
 
 	}
 
