@@ -14,11 +14,6 @@ public class Main {
 		hp.printTable();
 		
 		hp.printSuffixTable();
-		
-		//asdadsad
-		//hsmfgdf
-		//samet
-		//hamza
 
 	}
 
