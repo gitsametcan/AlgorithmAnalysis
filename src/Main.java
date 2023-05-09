@@ -11,6 +11,11 @@ public class Main {
 		
 		hp.printTable();
 		
+		ReadHTML html = new ReadHTML("form_advanced");
+		
+		System.out.print(html.htmlContent);
+		
+		
 	}
 
 }
