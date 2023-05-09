@@ -35,26 +35,12 @@ public class BruteForce {
 		}
 		
 		this.time = System.currentTimeMillis() - startTime;
-		System.out.println("time is" + time);
 		this.comp = comprasion;
-		System.out.println("comp is" + comprasion);
 		this.count = count;
-		System.out.println("count is" + count);
 	}
-
-
-	public int getComp() {
-		return this.comp;
-	}
-
-
-	public int getCount() {
-		return this.count;
-	}
-
-
-	public long getTime() {
-		return this.time;
+	
+	public String print() {
+		return "Comparison time is "+this.time+"(ms) comparison number is "+this.comp+" matching number is " + this.count;
 	}
 	
 	
