@@ -7,6 +7,11 @@ public class Main {
 		
 		System.out.print(bc.print());
 		
+		ReadHTML html = new ReadHTML("form_advanced");
+		
+		System.out.print(html.htmlContent);
+		
+		
 	}
 
 }
