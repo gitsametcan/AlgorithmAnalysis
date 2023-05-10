@@ -3,19 +3,20 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//BruteForce bc = new BruteForce("baobab", "bard loved bananas");
+		//ReadHTML html = new ReadHTML("typetwoinput");
 		
-		//System.out.print(bc.print());
+		BruteForce bc = new BruteForce("se", "buraya sena gelecekse sena");
 		
-		Horspool hp = new Horspool("baobab", "bard loved bananas");
+		System.out.print(bc.getIndexes());
 		
-		hp.printTable();
+		//Horspool hp = new Horspool("baobab", "bard loved bananas");
 		
-		hp.count();
-		System.out.println(hp.getCompNumber());
-		//ReadHTML html = new ReadHTML("typeoneinput");
+		//hp.printTable();
 		
-		//html.writeHTML();
+		//hp.count();
+		//System.out.println(hp.getCompNumber());
+		
+		
 		
 		//System.out.print(html.htmlContent);
 		
