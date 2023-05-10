@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ReadHTML {
@@ -26,6 +28,20 @@ public class ReadHTML {
 		
 		this.htmlContent = str.toString();
 		
+	}
+	
+	public void writeHTML() {
+		try {
+			FileWriter writer = new FileWriter("output.html"); 
+			writer.write(this.htmlContent);
+			
+			writer.close();
+		      System.out.println("Successfully wrote to the file.");
+		    } 
+		catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
 	}
 
 }
