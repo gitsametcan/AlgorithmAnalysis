@@ -11,7 +11,7 @@ public class Horspool {
 		this.pattern = pattern;
 		this.htmlFile = comeFromFile;
 		this.table = generateTable(this.pattern,this.htmlFile);
-		
+		//this.count();
 	}
 	
 	private HashMap<String, Integer> generateTable(String pattern, String htmlFile) {
@@ -66,33 +66,23 @@ public class Horspool {
 		return temp;	
 	}
 	
-	public void count() {
-		for(int i = 0; i < htmlFile.length() + pattern.length(); i++ ) {
-			int tempi = i;
-			//if (i != 0 ) {
-			//	i = i -1;
-			//}
+	private void count() {
+		int i = 0;
+		while(i < htmlFile.length() + pattern.length()) {
+			
 			if (i > htmlFile.length() - pattern.length()) {
-				
 				break;
 			}
 			int j = 0;
 			
-			while (htmlFile.substring(i +pattern.length() - 1 - j,  i +pattern.length()-0 -j).equals(pattern.substring(pattern.length() - 1 - j ,pattern.length() - 0 - j))) {
-				System.out.println("first2  " + htmlFile.substring(i + pattern.length() - 1 -j, i +pattern.length()-0 -j));
-				System.out.println("xxxxxxxxxxxxxxxxx");
+			// if pattern's letter equals to html file's letter
+			while (htmlFile.substring(i + pattern.length() - 1 - j,  i + pattern.length() - j).equals(pattern.substring(pattern.length() - 1 - j ,pattern.length() - j))) {
 				this.compNumber++;
 				
 				j++;
 			}
-			i = tempi;
-			//System.out.println("first2  " + htmlFile.substring(pattern.length() - 1 -j, pattern.length()-0 -j));
-			
-			
-			System.out.println("first3  " + htmlFile.substring(i + pattern.length() - 1, i + pattern.length()-0));
-			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length() - 0)) -1;
-			//System.out.println(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));
-			System.out.println("i= " + i);
+				
+			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));
 			
 			
 			this.compNumber++;

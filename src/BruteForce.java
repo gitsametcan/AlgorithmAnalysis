@@ -18,7 +18,7 @@ public class BruteForce {
 	}
 	
 	
-	public void count() {
+	private void count() {
 		int count = 0;
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();

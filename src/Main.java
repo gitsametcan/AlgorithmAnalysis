@@ -3,17 +3,18 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//ReadHTML html = new ReadHTML("typetwoinput");
+		ReadHTML html = new ReadHTML("typeoneinput");
 		
-		BruteForce bc = new BruteForce("se", "buraya sena gelecekse sena");
+		BruteForce bc = new BruteForce("the", html.htmlContent);
 		
-		System.out.print(bc.getIndexes());
+		System.out.println(bc.print());
+		//System.out.print(bc.getIndexes());
 		
-		//Horspool hp = new Horspool("baobab", "bard loved bananas");
+		//Horspool hp = new Horspool("baobab", "bard baobab loved bananas");
 		
 		//hp.printTable();
 		
-		//hp.count();
+		
 		//System.out.println(hp.getCompNumber());
 		
 		
