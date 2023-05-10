@@ -30,10 +30,10 @@ public class ReadHTML {
 		
 	}
 	
-	public void writeHTML() {
+	public void writeHTML(String output) {
 		try {
 			FileWriter writer = new FileWriter("output.html"); 
-			writer.write(this.htmlContent);
+			writer.write(output);
 			
 			writer.close();
 		      System.out.println("Successfully wrote to the file.");
