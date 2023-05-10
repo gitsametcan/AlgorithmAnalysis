@@ -13,7 +13,7 @@ public class Main {
 		
 		//hp.count();
 		//System.out.println(hp.getCompNumber());
-		ReadHTML html = new ReadHTML("form_advanced");
+		ReadHTML html = new ReadHTML("input");
 		
 		html.writeHTML();
 		
