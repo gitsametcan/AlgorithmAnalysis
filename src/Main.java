@@ -7,15 +7,15 @@ public class Main {
 		
 		//System.out.print(bc.print());
 		
-		//Horspool hp = new Horspool("baobab", "bard loved bananas");
+		Horspool hp = new Horspool("baobab", "bard loved bananas");
 		
-		//hp.printTable();
+		hp.printTable();
 		
-		//hp.count();
-		//System.out.println(hp.getCompNumber());
-		ReadHTML html = new ReadHTML("typeoneinput");
+		hp.count();
+		System.out.println(hp.getCompNumber());
+		//ReadHTML html = new ReadHTML("typeoneinput");
 		
-		html.writeHTML();
+		//html.writeHTML();
 		
 		//System.out.print(html.htmlContent);
 		

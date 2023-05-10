@@ -67,31 +67,31 @@ public class Horspool {
 	}
 	
 	public void count() {
-		for(int i = 0; i < htmlFile.length() - pattern.length(); i++ ) {
+		for(int i = 0; i < htmlFile.length() + pattern.length(); i++ ) {
 			int tempi = i;
-			if (i != 0 ) {
-				i = i - 1;
+			//if (i != 0 ) {
+			//	i = i -1;
+			//}
+			if (i > htmlFile.length() - pattern.length()) {
+				
+				break;
 			}
-			
 			int j = 0;
-			if (htmlFile.substring(i + pattern.length() - 3, i + pattern.length()-2 ).equals(pattern.substring(pattern.length() - 3 - j ,pattern.length() - 2 - j))) {
-				System.out.println("first1  " + htmlFile.substring(i + pattern.length() - 3, i + pattern.length()-2));
-				compNumber --;
-			}
-			while (htmlFile.substring(i + pattern.length() - 3, i + pattern.length()-2 ).equals(pattern.substring(pattern.length() - 3 - j ,pattern.length() - 2 - j))) {
-				System.out.println("first2  " + htmlFile.substring(i + pattern.length() - 3, i + pattern.length()-2));
+			
+			while (htmlFile.substring(i +pattern.length() - 1 - j,  i +pattern.length()-0 -j).equals(pattern.substring(pattern.length() - 1 - j ,pattern.length() - 0 - j))) {
+				System.out.println("first2  " + htmlFile.substring(i + pattern.length() - 1 -j, i +pattern.length()-0 -j));
 				System.out.println("xxxxxxxxxxxxxxxxx");
 				this.compNumber++;
-				i--;
+				
 				j++;
 			}
-			
-			
 			i = tempi;
+			//System.out.println("first2  " + htmlFile.substring(pattern.length() - 1 -j, pattern.length()-0 -j));
 			
-			System.out.println("first3  " + htmlFile.substring(i + pattern.length() - 2, i + pattern.length()-1));
-			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));
-			System.out.println(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));
+			
+			System.out.println("first3  " + htmlFile.substring(i + pattern.length() - 1, i + pattern.length()-0));
+			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length() - 0)) -1;
+			//System.out.println(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));
 			System.out.println("i= " + i);
 			
 			
