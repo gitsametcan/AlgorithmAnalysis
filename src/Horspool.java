@@ -5,6 +5,7 @@ import java.util.List;
 public class Horspool {
 	protected String pattern;
 	protected String htmlFile;
+	private long time;
 	protected HashMap<String, Integer> table;
 	private List<Integer> indexes;
 	private int compNumber;
@@ -72,6 +73,7 @@ public class Horspool {
 	private void count() {
 		int i = 0;
 		List<Integer> temp = new ArrayList();
+		long startTime = System.currentTimeMillis();
 		while(i < htmlFile.length() + pattern.length()) {
 			
 			if (i > htmlFile.length() - pattern.length()) {
@@ -95,6 +97,7 @@ public class Horspool {
 			
 			this.compNumber++;
 		}
+		this.time = System.currentTimeMillis() - startTime;
 		this.indexes = temp;
 	}
 	
@@ -110,6 +113,9 @@ public class Horspool {
 	
 	public List<Integer> getIndexes() {
 		return indexes;
+	}
+	public void print() {
+		System.out.println("Comparison time is "+ this.time + "(ms) comparison number is "+ this.compNumber + " matching number is " + this.indexes);
 	}
 }
 

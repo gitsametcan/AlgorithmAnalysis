@@ -46,8 +46,8 @@ public class BruteForce {
 		this.indexes = temp;
 	}
 	
-	public String print() {
-		return "Comparison time is "+this.time+"(ms) comparison number is "+this.comp+" matching number is " + this.count;
+	public void print() {
+		System.out.println("Comparison time is "+this.time+"(ms) comparison number is "+this.comp+" matching number is " + this.count);
 	}
 	
 	public List<Integer> getIndexes() {

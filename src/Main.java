@@ -21,6 +21,7 @@ public class Main {
 		System.out.println(hp.getCompNumber());
 		
 		System.out.println(hp.getIndexes());
+		hp.print();
 		//System.out.print(html.htmlContent);
 		
 		
