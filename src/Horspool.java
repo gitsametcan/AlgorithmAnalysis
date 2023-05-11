@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Horspool {
 	protected String pattern;
 	protected String htmlFile;
 	protected HashMap<String, Integer> table;
+	private List<Integer> indexes;
 	private int compNumber;
 	
 	
@@ -11,7 +14,7 @@ public class Horspool {
 		this.pattern = pattern;
 		this.htmlFile = comeFromFile;
 		this.table = generateTable(this.pattern,this.htmlFile);
-		//this.count();
+		this.count();
 	}
 	
 	private HashMap<String, Integer> generateTable(String pattern, String htmlFile) {
@@ -68,6 +71,7 @@ public class Horspool {
 	
 	private void count() {
 		int i = 0;
+		List<Integer> temp = new ArrayList();
 		while(i < htmlFile.length() + pattern.length()) {
 			
 			if (i > htmlFile.length() - pattern.length()) {
@@ -80,6 +84,10 @@ public class Horspool {
 				this.compNumber++;
 				
 				j++;
+				if (j == pattern.length()) {
+					temp.add(i + pattern.length() - j);
+					break;
+				}
 			}
 				
 			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));
@@ -87,7 +95,7 @@ public class Horspool {
 			
 			this.compNumber++;
 		}
-		
+		this.indexes = temp;
 	}
 	
 
@@ -99,6 +107,10 @@ public class Horspool {
 	public int getCompNumber(){
     	return this.compNumber;
     }
+	
+	public List<Integer> getIndexes() {
+		return indexes;
+	}
 }
 
     
