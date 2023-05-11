@@ -115,7 +115,7 @@ public class Horspool {
 		return indexes;
 	}
 	public void print() {
-		System.out.println("Comparison time is "+ this.time + "(ms) comparison number is "+ this.compNumber + " matching number is " + this.indexes);
+		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.compNumber + " matching number is " + this.indexes);
 	}
 }
 
