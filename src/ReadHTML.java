@@ -37,11 +37,10 @@ public class ReadHTML {
 			writer.write(output);
 			
 			writer.close();
-		      System.out.println("Successfully wrote to the file.");
+		      System.out.println("Successfully wrote to the file with marks.");
 		    } 
 		catch (IOException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
+		      System.out.println("An error occurred at writing.");
 		    }
 	}
 	
