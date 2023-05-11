@@ -22,6 +22,11 @@ public class BoyerMoore extends Horspool {
 				k++;
 				l--;
 			}
+			
+			if(i == 1 && !isThere(pattern.substring(pattern.length()-1),pattern.substring(0,pattern.length()-1)))
+			table.put(i, k+i+1);
+			
+			else
 			table.put(i, k+i);
 		}
 		

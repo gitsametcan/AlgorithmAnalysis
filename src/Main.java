@@ -13,15 +13,15 @@ public class Main {
 		//System.out.println(bc.print());
 		//System.out.print(bc.getIndexes());
 		
-		Horspool hp = new Horspool("baobab", "bard baobab loved baobab bananas");
+		BoyerMoore hp = new BoyerMoore("baobab", "bard baobab loved baobab bananas");
 		
-		hp.printTable();
+		hp.printSuffixTable();
 		
 		
-		System.out.println(hp.getCompNumber());
+		//System.out.println(hp.getCompNumber());
 		
-		System.out.println(hp.getIndexes());
-		hp.print();
+		//System.out.println(hp.getIndexes());
+		//hp.print();
 		//System.out.print(html.htmlContent);
 		
 		

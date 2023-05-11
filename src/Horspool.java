@@ -49,7 +49,7 @@ public class Horspool {
 		return table;
 	}
 	
-	private boolean isThere(String a, String pattern) {
+	protected boolean isThere(String a, String pattern) {
 		boolean isThere = false;
 		for (int i = 0; i<pattern.length();i++) {
 			if (pattern.substring(i,i+1).equals(a)) isThere = true;
