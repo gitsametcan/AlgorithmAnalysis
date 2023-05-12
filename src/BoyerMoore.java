@@ -49,8 +49,8 @@ public class BoyerMoore extends Horspool {
 			while (htmlFile.substring(i + pattern.length() - 1 - j,  i + pattern.length() - j).equals(pattern.substring(pattern.length() - 1 - j ,pattern.length() - j))) {
 				this.compNumber++;
 				j++;
-				if (j == pattern.length()) {
-					System.out.println("esalka");
+				if (j == pattern.length()-1) {
+					//System.out.println("esalka");
 					temp.add(i + pattern.length() - j);
 					break;
 				}
@@ -60,7 +60,7 @@ public class BoyerMoore extends Horspool {
 			
 			int fromSuffix = pattern.length();
 			
-			if (j < pattern.length() -1 ) fromSuffix = tempa.get(j);
+			if (j < pattern.length()) fromSuffix = tempa.get(j);
 			int jump = fromTable;
 			
 			if (fromTable < fromSuffix) jump = fromSuffix;
@@ -69,7 +69,7 @@ public class BoyerMoore extends Horspool {
 			
 			i += jump;
 			
-			System.out.println("a is ="+ a+"d1 is = "+ fromTable + "d2 is = " + fromSuffix + " jump is = "+ jump);
+			//System.out.println("a is ="+ a+"d1 is = "+ fromTable + "d2 is = " + fromSuffix + " jump is = "+ jump);
 			this.compNumber++;
 		}
 		this.time = System.currentTimeMillis() - startTime;

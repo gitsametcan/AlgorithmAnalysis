@@ -68,17 +68,15 @@ public class Horspool {
 		int i = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
-		while(i < htmlFile.length() + pattern.length()) {
+		while(i <= htmlFile.length() - pattern.length()) {
 			
-			if (i > htmlFile.length() - pattern.length()) {
-				break;
-			}
+			
 			int j = 0;		
 			// if pattern's letter equals to html file's letter
 			while (htmlFile.substring(i + pattern.length() - 1 - j,  i + pattern.length() - j).equals(pattern.substring(pattern.length() - 1 - j ,pattern.length() - j))) {
 				this.compNumber++;
 				j++;
-				if (j == pattern.length()) {
+				if (j == pattern.length()-1) {
 					temp.add(i + pattern.length() - j);
 					break;
 				}

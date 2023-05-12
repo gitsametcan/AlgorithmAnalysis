@@ -3,8 +3,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		String a = "algorithm";
-		ReadHTML html = new ReadHTML("typeoneinput");
+		String a = "01";
+		ReadHTML html = new ReadHTML("typetwoinput");
 		
 		//BruteForce bc = new BruteForce(a, html.getHtmlContent());
 		
@@ -13,7 +13,7 @@ public class Main {
 		
 
 		
-		BoyerMoore bm = new BoyerMoore("baobab", "bess_knew_about_baobabaobabs bess_baobabknew_about_baobabs");
+		//BoyerMoore bm = new BoyerMoore("baobab", "bess_knew_about_baobabaobabs bess_baobabknew_about_baobabs");
 		
 		
 		
@@ -26,7 +26,9 @@ public class Main {
 		
 		//hp.print();
 				
-
+		BoyerMoore bm = new BoyerMoore("11011","0516235123351");
+		
+		bm.printSuffixTable();
 				
 		//BoyerMoore bm = new BoyerMoore(a, html.getHtmlContent());
 				
