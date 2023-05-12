@@ -65,34 +65,44 @@ public class Horspool {
 	}
 	
 	private void count() {
-		int i = 0;
+		int count = 0;
+		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
-		while(i <= htmlFile.length() - pattern.length()) {
-			
-			
-			int j = 0;		
-			// if pattern's letter equals to html file's letter
-			while (htmlFile.substring(i + pattern.length() - 1 - j,  i + pattern.length() - j).equals(pattern.substring(pattern.length() - 1 - j ,pattern.length() - j))) {
-				this.compNumber++;
-				j++;
-				if (j == pattern.length()-1) {
-					temp.add(i + pattern.length() - j);
-					break;
+		int i = 0;
+		while(i<=this.htmlFile.length() - this.pattern.length()) {	
+			int j = 0;
+			int k = i;
+			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
+				
+				comprasion ++;
+				if(j+2==this.pattern.length() && this.htmlFile.substring(k+1, k+2).equals(this.pattern.substring(j+1,j+2))) {
+					temp.add(k - this.pattern.length()+2);
+					count ++;
 				}
-			}				
-			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));			
-			this.compNumber++;
+				j++;
+				k++;
+			}
+			comprasion ++;
+			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));	
 		}
+		
 		this.time = System.currentTimeMillis() - startTime;
+		this.compNumber = comprasion;
 		this.indexes = temp;
 	}
 	
 
 	public void printTable() {
-		System.out.println("Table is:\n");
+		System.out.println("Table is:");
 		for (int i = 0; i < this.table.toString().length(); i = i + 5) {
-			System.out.print(this.table.toString().substring(i + 1, i + 2) + "|");
+			if (this.table.toString().substring(i + 1, i + 2).equals("\n") 
+					|| this.table.toString().substring(i + 1, i + 2).equals("\r") 
+					||this.table.toString().substring(i + 1, i + 2).equals("\t")) {
+				System.out.print("*" + "|");
+			}
+			else
+				System.out.print(this.table.toString().substring(i + 1, i + 2) + "|");
 			
 		}
 		System.out.println();

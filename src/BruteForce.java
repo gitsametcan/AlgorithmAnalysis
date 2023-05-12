@@ -22,8 +22,8 @@ public class BruteForce {
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
-		
-		for (int i = 0; i<=this.htmlFile.length() - this.pattern.length(); i++) {	
+		int i = 0;
+		while(i<=this.htmlFile.length() - this.pattern.length()) {	
 			int j = 0;
 			int k = i;
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
@@ -37,6 +37,7 @@ public class BruteForce {
 				k++;
 			}
 			comprasion ++;
+			i++;
 		}
 		
 		this.time = System.currentTimeMillis() - startTime;
