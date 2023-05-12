@@ -7,8 +7,8 @@ public class Horspool {
 	protected String htmlFile;
 	private long time;
 	protected HashMap<String, Integer> table;
-	private List<Integer> indexes;
-	private int compNumber;
+	protected List<Integer> indexes;
+	protected int compNumber;
 	
 	
 	public Horspool(String pattern, String comeFromFile) {
@@ -30,31 +30,25 @@ public class Horspool {
 			if (!isThere(htmlFile.substring(i,i+1), pattern)) { table.put(htmlFile.substring(i,i+1), pattern.length());
 			
 			}
-			else {
-				
-				
+			else {				
 				int k = 1;
 				int l = pattern.length()-2;
 				while(!htmlFile.substring(i,i+1).equals(pattern.substring(l,l+1))) {
 					k++;
 					l--;
-					
+					if(l<0)break;
 				}
 				table.put(htmlFile.substring(i,i+1), k);
-				
-				
 			}
 		}
-		
 		return table;
 	}
 	
-	protected boolean isThere(String a, String pattern) {
+	private boolean isThere(String a, String pattern) {
 		boolean isThere = false;
 		for (int i = 0; i<pattern.length();i++) {
 			if (pattern.substring(i,i+1).equals(a)) isThere = true;
-		}
-		
+		}		
 		return isThere;
 	}
 	
@@ -79,22 +73,17 @@ public class Horspool {
 			if (i > htmlFile.length() - pattern.length()) {
 				break;
 			}
-			int j = 0;
-			
+			int j = 0;		
 			// if pattern's letter equals to html file's letter
 			while (htmlFile.substring(i + pattern.length() - 1 - j,  i + pattern.length() - j).equals(pattern.substring(pattern.length() - 1 - j ,pattern.length() - j))) {
 				this.compNumber++;
-				
 				j++;
 				if (j == pattern.length()) {
 					temp.add(i + pattern.length() - j);
 					break;
 				}
-			}
-				
-			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));
-			
-			
+			}				
+			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));			
 			this.compNumber++;
 		}
 		this.time = System.currentTimeMillis() - startTime;
@@ -102,20 +91,16 @@ public class Horspool {
 	}
 	
 
-	
 	public void printTable() {
 		System.out.println(this.table);
 	}
 	
-	public int getCompNumber(){
-    	return this.compNumber;
-    }
-	
 	public List<Integer> getIndexes() {
 		return indexes;
 	}
+	
 	public void print() {
-		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.compNumber + " matching number is " + this.indexes);
+		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.compNumber + " matching number is " + this.indexes.size() +" algorithm is Horspool");
 	}
 }
 

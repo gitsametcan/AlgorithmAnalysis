@@ -3,22 +3,36 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//String a = "the";
-		//ReadHTML html = new ReadHTML("typeoneinput");
+		String a = "algorithm";
+		ReadHTML html = new ReadHTML("typeoneinput");
 		
 		//BruteForce bc = new BruteForce(a, html.getHtmlContent());
 		
-		//html.addMarkAndWrite(bc.getIndexes(), a.length());
-		
-		//System.out.println(bc.print());
-		//System.out.print(bc.getIndexes());
-		
-		BoyerMoore hp = new BoyerMoore("11011", "bard baobab loved bananas");
-		
-		hp.printSuffixTable();
+		//bc.print();
 		
 		
-		//System.out.println(hp.getCompNumber());
+
+		
+		BoyerMoore bm = new BoyerMoore("baobab", "bess_knew_about_baobabaobabs bess_baobabknew_about_baobabs");
+		
+		
+		
+		
+		//BruteForce bc = new BruteForce(a, html.getHtmlContent());
+		
+		//bc.print();
+				
+		//Horspool hp = new Horspool(a, html.getHtmlContent());
+		
+		//hp.print();
+				
+
+				
+		//BoyerMoore bm = new BoyerMoore(a, html.getHtmlContent());
+				
+				
+		//bm.print();
+		//hp.printSuffixTable();
 		
 		//System.out.println(hp.getIndexes());
 		//hp.print();

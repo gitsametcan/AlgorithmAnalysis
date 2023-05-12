@@ -6,7 +6,6 @@ public class BruteForce {
 	private String pattern;
 	private String htmlFile;
 	private int comp;
-	private int count;
 	private long time;
 	private List<Integer> indexes;
 	
@@ -42,12 +41,11 @@ public class BruteForce {
 		
 		this.time = System.currentTimeMillis() - startTime;
 		this.comp = comprasion;
-		this.count = count;
 		this.indexes = temp;
 	}
 	
 	public void print() {
-		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.comp + " matching number is " + this.count);
+		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.comp + " matching number is " + this.indexes.size() +" algorithm is Brute Force");
 	}
 	
 	public List<Integer> getIndexes() {
