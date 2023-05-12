@@ -90,7 +90,16 @@ public class Horspool {
 	
 
 	public void printTable() {
-		System.out.println(this.table);
+		System.out.println("Table is:\n");
+		for (int i = 0; i < this.table.toString().length(); i = i + 5) {
+			System.out.print(this.table.toString().substring(i + 1, i + 2) + "|");
+			
+		}
+		System.out.println();
+		for (int i = 0; i < this.table.toString().length(); i = i + 5) {
+			System.out.print(this.table.toString().substring(i + 3, i + 4) + "|");
+		}
+		
 	}
 	
 	public List<Integer> getIndexes() {

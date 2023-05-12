@@ -77,7 +77,8 @@ public class BoyerMoore extends Horspool {
 	}
 	
 	public void printSuffixTable() {
-		System.out.println(this.suffix);
+		System.out.println("The suffix table is:\n");
+		
 	}
 
 	public List<Integer> getSuffix() {
