@@ -13,7 +13,7 @@ public class Main {
 		//System.out.println(bc.print());
 		//System.out.print(bc.getIndexes());
 		
-		BoyerMoore hp = new BoyerMoore("baobab", "bard baobab loved baobab bananas");
+		BoyerMoore hp = new BoyerMoore("11011", "bard baobab loved bananas");
 		
 		hp.printSuffixTable();
 		
