@@ -5,7 +5,7 @@ import java.util.List;
 public class Horspool {
 	protected String pattern;
 	protected String htmlFile;
-	private long time;
+	protected long time;
 	protected HashMap<String, Integer> table;
 	protected List<Integer> indexes;
 	protected int compNumber;
@@ -65,7 +65,6 @@ public class Horspool {
 	}
 	
 	private void count() {
-		int count = 0;
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
@@ -78,7 +77,6 @@ public class Horspool {
 				comprasion ++;
 				if(j+2==this.pattern.length() && this.htmlFile.substring(k+1, k+2).equals(this.pattern.substring(j+1,j+2))) {
 					temp.add(k - this.pattern.length()+2);
-					count ++;
 				}
 				j++;
 				k++;
