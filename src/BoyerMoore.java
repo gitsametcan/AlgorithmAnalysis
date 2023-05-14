@@ -21,7 +21,7 @@ public class BoyerMoore extends Horspool {
 		for(k=1;k<=pattern.length();k++) {
 			
 			if(pattern.substring(0,pattern.length()-1).contains((pattern.substring(pattern.length()-k))) ) {
-				System.out.println();
+				System.out.println(); //Hangilerini içinde bulabiliyor.
 				table.add(pattern.length()-k-pattern.substring(0,pattern.length()-1).lastIndexOf(pattern.substring(pattern.length()-k)));
 				System.out.println(k);
 			}
@@ -34,48 +34,39 @@ public class BoyerMoore extends Horspool {
 				else{
 					
 					int index = pattern.substring(0,pattern.length()-1).lastIndexOf(pattern.charAt(pattern.length()-1));
-					StringBuilder sb = new StringBuilder();
+					//StringBuilder sb = new StringBuilder();
+					int end=0;
 					
 					for(int t = index,j = 1;t>=0;t--,j++) {
 						
-						if(pattern.charAt(pattern.length()-j) == pattern.charAt(t))
-							sb.insert(0,pattern.charAt(t));
-						else {
-							index = pattern.substring(0,index).lastIndexOf(pattern.charAt(pattern.length()-1));
-							sb.setLength(0);
-							if(t == 0)
-								table.add(pattern.length());
+						if(pattern.charAt(pattern.length()-j) == pattern.charAt(t)) {
+							end++;
+							//sb.insert(0,pattern.charAt(t));
 						}
-						
-						
-						String s = sb.toString();
-						if(s.equals(pattern)){
-							table.add(pattern.length()-1-index);
-							break;
-						}
-								
-
-						
-						
 							
-					}
+						else {
+							index = pattern.substring(0,t).lastIndexOf(pattern.charAt(pattern.length()-1));
+							t = index + 1;
+							j = 0;
+							end = 0;
+							//sb.setLength(0);
+						}
+					
+					}	
+						
+						table.add(pattern.length()- end);
+						/*String s = sb.toString();
+						//if(pattern.contains(s)){
+						}*/
 						
 				}
+		
 				
-				
-				
-			}
-			
-				
-				
-			
+			}		
 			
 		}
 	
-			
-		
-		
-		return table;
+			return table;
 		
 	}
 	
