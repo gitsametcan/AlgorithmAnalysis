@@ -22,11 +22,11 @@ public class Main {
 		
 		//bm.printSuffixTable();
 				
-		//BoyerMoore bm = new BoyerMoore(a, html.getHtmlContent());
+		BoyerMoore bm = new BoyerMoore("abcd", html.getHtmlContent());
 				
 				
 		//bm.print();
-		//bm.printSuffixTable();
+		bm.printSuffixTable();
 		
 		//System.out.println(hp.getIndexes());
 		//hp.print();

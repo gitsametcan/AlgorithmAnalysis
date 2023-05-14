@@ -17,16 +17,63 @@ public class BoyerMoore extends Horspool {
 		
 		List<Integer> table = new ArrayList();
 		
-		for (int i = 1; i<this.pattern.length(); i++) {
-			int k = 0;
-			String a = this.pattern.substring(this.pattern.length()-i);
-			int l = pattern.length()-i-1;
-			while(!a.equals(pattern.substring(l,l+i))&&l>0) {
-				k++;
-				l--;
+		int k;	
+		for(k=1;k<=pattern.length();k++) {
+			
+			if(pattern.substring(0,pattern.length()-1).contains((pattern.substring(pattern.length()-k))) ) {
+				System.out.println();
+				table.add(pattern.length()-k-pattern.substring(0,pattern.length()-1).lastIndexOf(pattern.substring(pattern.length()-k)));
+				System.out.println(k);
 			}
-			table.add(k+i);
+			
+			else {
+				
+				if(k==1)
+					table.add(pattern.length());
+				
+				else{
+					
+					int index = pattern.substring(0,pattern.length()-1).lastIndexOf(pattern.charAt(pattern.length()-1));
+					StringBuilder sb = new StringBuilder();
+					
+					for(int t = index,j = 1;t>=0;t--,j++) {
+						
+						if(pattern.charAt(pattern.length()-j) == pattern.charAt(t))
+							sb.insert(0,pattern.charAt(t));
+						else {
+							index = pattern.substring(0,index).lastIndexOf(pattern.charAt(pattern.length()-1));
+							sb.setLength(0);
+							if(t == 0)
+								table.add(pattern.length());
+						}
+						
+						
+						String s = sb.toString();
+						if(s.equals(pattern)){
+							table.add(pattern.length()-1-index);
+							break;
+						}
+								
+
+						
+						
+							
+					}
+						
+				}
+				
+				
+				
+			}
+			
+				
+				
+			
+			
 		}
+	
+			
+		
 		
 		return table;
 		
@@ -60,7 +107,7 @@ public class BoyerMoore extends Horspool {
 	}
 	
 	public void printSuffixTable() {
-		System.out.println("The suffix table is:\n");
+		System.out.println("\nThe suffix table is:\n" + suffix);
 		
 	}
 
