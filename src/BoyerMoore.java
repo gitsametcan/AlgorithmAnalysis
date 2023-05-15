@@ -67,10 +67,12 @@ public class BoyerMoore extends Horspool {
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
-		int i = 0;
+		System.out.print(table);
+		int i = pattern.length()-1;
 		while(i<=this.htmlFile.length() - this.pattern.length()) {	
 			int j = 0;
 			int k = i;
+			//System.out.println("kictaki = " +this.htmlFile.substring(k, k+1));
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
 				
 				comprasion ++;
@@ -79,15 +81,21 @@ public class BoyerMoore extends Horspool {
 				}
 				j++;
 				k++;
+				System.out.println(this.htmlFile.substring(k-1, k) +"  =  " + this.pattern.substring(j-1,j));
 			}
+			System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1));
 			comprasion ++;
-			int l = table.get(htmlFile.substring(i + pattern.length() - 1-j, i + pattern.length()-j)) - j;
+			//System.out.println("aranan =" + this.htmlFile.substring(i-j, i-j+1));
+			//System.out.println("j = "+ j);
+			int l = table.get(this.htmlFile.substring(i-j, i-j+1)) - j;
 			
 			int m = 0;
-			if ( j>0) m = this.suffix.get(j-1);
+			if ( j == 0) m = this.suffix.get(pattern.length()-1);
+			else m = this.suffix.get(j-1);
 			
 			if (j==this.pattern.length()) i++;
-			else i += Math.max(l,m);	
+			else i += Math.max(l,m);
+			System.out.println("d is =" +l +" d2 is ="+ m +" jump is =" + Math.max(l,m) );
 		}
 		
 		this.time = System.currentTimeMillis() - startTime;
