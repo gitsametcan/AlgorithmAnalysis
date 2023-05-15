@@ -3,30 +3,35 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		String a = "01010";
-		ReadHTML html = new ReadHTML("typetwoinput");
+		String a = "algorithms";
+		ReadHTML html = new ReadHTML("typeoneinput");
+		String b = html.getHtmlContent();
 		
 
 		
-		BruteForce bc = new BruteForce(a, html.getHtmlContent());
+		BruteForce bc = new BruteForce(a, b);
 		
 		bc.print();
 				
 		//Horspool hp = new Horspool("baobab", "bess_knew_about_baobabaobabs bess_baobabknew_about_baobabs");
-		Horspool hp = new Horspool(a, html.getHtmlContent());
+		Horspool hp = new Horspool(a, b);
 		
 		hp.print();
 		hp.printTable();
-		//hp.printTable();
-		//BoyerMoore bm = new BoyerMoore("11011","0516235123351");
-		
+		BoyerMoore bm = new BoyerMoore(a,b);
+		//System.out.print(a.substring(a.length()-3,a.length()-3+1));
 		//bm.printSuffixTable();
 				
-		BoyerMoore bm = new BoyerMoore("11101011", html.getHtmlContent());
+		//BoyerMoore bm = new BoyerMoore("11101011", html.getHtmlContent());
 				
 				
 		//bm.print();
+		//bm.printSuffixTable();
+		bm.print();
+		bm.printTable();
 		bm.printSuffixTable();
+		
+		html.addMarkAndWrite(bm.getIndexes(), a.length());
 		
 		//System.out.println(hp.getIndexes());
 		//hp.print();

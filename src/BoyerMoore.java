@@ -15,8 +15,7 @@ public class BoyerMoore extends Horspool {
 	
 	private List<Integer> generateSuffixTable(String pattern) {
 		
-		List<Integer> table = new ArrayList();
-		
+		List<Integer> table = new ArrayList();	
 		int k;	
 		for(k=1;k<=pattern.length();k++) {
 			
@@ -52,22 +51,16 @@ public class BoyerMoore extends Horspool {
 							//sb.setLength(0);
 						}
 					
-					}	
-						
+					}				
 						table.add(pattern.length()- end);
 						/*String s = sb.toString();
 						//if(pattern.contains(s)){
-						}*/
-						
+						}*/			
 				}
-		
-				
-			}		
-			
+					
+			}				
 		}
-	
 			return table;
-		
 	}
 	
 	private void count() {
@@ -88,8 +81,13 @@ public class BoyerMoore extends Horspool {
 				k++;
 			}
 			comprasion ++;
+			int l = table.get(htmlFile.substring(i + pattern.length() - 1-j, i + pattern.length()-j)) - j;
 			
-			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));	
+			int m = 0;
+			if ( j>0) m = this.suffix.get(j-1);
+			
+			if (j==this.pattern.length()) i++;
+			else i += Math.max(l,m);	
 		}
 		
 		this.time = System.currentTimeMillis() - startTime;

@@ -18,7 +18,6 @@ public class BruteForce {
 	
 	
 	private void count() {
-		int count = 0;
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
@@ -31,7 +30,6 @@ public class BruteForce {
 				comprasion ++;
 				if(j+2==this.pattern.length() && this.htmlFile.substring(k+1, k+2).equals(this.pattern.substring(j+1,j+2))) {
 					temp.add(k - this.pattern.length()+2);
-					count ++;
 				}
 				j++;
 				k++;
