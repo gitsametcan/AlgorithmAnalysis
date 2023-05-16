@@ -96,41 +96,74 @@ public class Horspool {
 		String tempPattern = "";
 		for (int i = 0; i < pattern.length(); i++) {
 			for (int j = 0; j < this.table.toString().length(); j = j + 5) {
+				
 			if (!(this.table.toString().substring(j + 1, j + 2).equals(this.pattern.substring(i , i + 1))) && !(tempPattern.contains(this.pattern.substring(i , i + 1)))) {
+				if ((this.table.toString().substring(j + 1, j + 3).equals("\n"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\r"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\n"))) {
 				tempPattern += this.pattern.substring(i , i + 1);
+				j++;
+				}
 				if (!(this.table.containsKey(this.pattern.substring(i , i + 1)))) {
 				this.table.put(this.pattern.substring(i , i + 1), pattern.length());
+				
 				}
 				break;
 			}
 			else if ((this.table.toString().substring(j + 1, j + 2).equals(this.pattern.substring(i , i + 1))) && !(tempPattern.contains(this.pattern.substring(i , i + 1)))) {
+				if ((this.table.toString().substring(j + 1, j + 3).equals("\n"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\r"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\n"))) {
 				tempPattern += this.pattern.substring(i , i + 1);
+				j++;
+				}
 			}
 			else {
 				if (!(tempPattern.contains(this.pattern.substring(i, i + 1))) || !(tempPattern.contains((this.table.toString().substring(j + 1, j + 2))))) {
-					tempPattern += this.table.toString().substring(j + 1, j + 2);
-					if (!(this.table.containsKey(this.table.toString().substring(j + 1 , j + 2)))) {
-					this.table.put(this.table.toString().substring(j + 1, j + 2), 3);
+					if ((this.table.toString().substring(j + 1, j + 3).equals("\n"))
+							|| (this.table.toString().substring(j + 1, j + 3).equals("\r"))
+							|| (this.table.toString().substring(j + 1, j + 3).equals("\n"))) {
+						tempPattern += this.table.toString().substring(j + 1, j + 3);
+						j++;
 					}
+						
 				}
 			}
+			
+			
 		}
 	}
-		for (int i = 0; i < this.table.toString().length(); i = i + 5) {
-			if (this.table.toString().substring(i + 1, i + 2).equals("\n") 
-					|| this.table.toString().substring(i + 1, i + 2).equals("\r") 
-					||this.table.toString().substring(i + 1, i + 2).equals("\t")) {
-				System.out.print("*" + "|");
+		
+        for (int i = 1; i < this.table.keySet().toString().length(); i = i + 3) {
+			
+			if (this.table.keySet().toString().charAt(i) == '\n'
+				||this.table.keySet().toString().charAt(i) == '\r'
+				||this.table.keySet().toString().charAt(i) == '\t') {
+				System.out.print("*" + " |");
 			}
 			else
-				System.out.print(this.table.toString().substring(i + 1, i + 2) + "|");
+				System.out.print(this.table.keySet().toString().charAt(i) + " |");
 			
 		}
 		System.out.println();
-		for (int i = 0; i < this.table.toString().length(); i = i + 5) {
-			System.out.print(this.table.toString().substring(i + 3, i + 4) + "|");
+		for (int i = 1; i < this.table.values().toString().length(); i = i + 3) {
+			if (this.table.values().toString().charAt(i + 1) == ']') {
+				System.out.print(this.table.values().toString().charAt(i)  + " |");
+				break;
+			}
+			if (this.table.values().toString().charAt(i + 1) == ',') {
+			System.out.print(this.table.values().toString().charAt(i) + " |");
+			}
+			else {
+				
+				System.out.print(this.table.values().toString().substring(i, i + 2)  + "|");
+				i++;
+			}
 		}
 		System.out.println();
+		
+		
+	
 		
 		
 	}
@@ -143,5 +176,3 @@ public class Horspool {
 		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.compNumber + " matching number is " + this.indexes.size() +" algorithm is Horspool");
 	}
 }
-
-    
