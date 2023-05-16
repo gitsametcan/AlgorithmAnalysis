@@ -11,16 +11,16 @@ public class Main {
 		
 
 		//System.out.print(a.substring(a.length()-1,a.length()));
-		//BruteForce bc = new BruteForce(a, b);
+		BruteForce bc = new BruteForce(a, b);
 		
-		//bc.print();
+		bc.print();
 				
 		//Horspool hp = new Horspool("baobab", "bess_knew_about_baobabaobabs bess_baobabknew_about_baobabs");
-		//Horspool hp = new Horspool(a, b);
+		Horspool hp = new Horspool(a, b);
 		
-		//hp.print();
+		hp.print();
 		
-		//hp.printTable();
+		hp.printTable();
 		BoyerMoore bm = new BoyerMoore(a,b);
 		//System.out.print(a.substring(a.length()-3,a.length()-3+1));
 		//bm.printSuffixTable();

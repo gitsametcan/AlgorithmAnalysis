@@ -93,6 +93,29 @@ public class Horspool {
 
 	public void printTable() {
 		System.out.println("Table is:");
+		String tempPattern = "";
+		for (int i = 0; i < pattern.length(); i++) {
+			for (int j = 0; j < this.table.toString().length(); j = j + 5) {
+			if (!(this.table.toString().substring(j + 1, j + 2).equals(this.pattern.substring(i , i + 1))) && !(tempPattern.contains(this.pattern.substring(i , i + 1)))) {
+				tempPattern += this.pattern.substring(i , i + 1);
+				if (!(this.table.containsKey(this.pattern.substring(i , i + 1)))) {
+				this.table.put(this.pattern.substring(i , i + 1), pattern.length());
+				}
+				break;
+			}
+			else if ((this.table.toString().substring(j + 1, j + 2).equals(this.pattern.substring(i , i + 1))) && !(tempPattern.contains(this.pattern.substring(i , i + 1)))) {
+				tempPattern += this.pattern.substring(i , i + 1);
+			}
+			else {
+				if (!(tempPattern.contains(this.pattern.substring(i, i + 1))) || !(tempPattern.contains((this.table.toString().substring(j + 1, j + 2))))) {
+					tempPattern += this.table.toString().substring(j + 1, j + 2);
+					if (!(this.table.containsKey(this.table.toString().substring(j + 1 , j + 2)))) {
+					this.table.put(this.table.toString().substring(j + 1, j + 2), 3);
+					}
+				}
+			}
+		}
+	}
 		for (int i = 0; i < this.table.toString().length(); i = i + 5) {
 			if (this.table.toString().substring(i + 1, i + 2).equals("\n") 
 					|| this.table.toString().substring(i + 1, i + 2).equals("\r") 
@@ -107,6 +130,8 @@ public class Horspool {
 		for (int i = 0; i < this.table.toString().length(); i = i + 5) {
 			System.out.print(this.table.toString().substring(i + 3, i + 4) + "|");
 		}
+		System.out.println();
+		
 		
 	}
 	
