@@ -75,9 +75,7 @@ public class BoyerMoore {
 		for(k=1;k<=pattern.length();k++) {
 			
 			if(pattern.substring(0,pattern.length()-1).contains((pattern.substring(pattern.length()-k))) ) {
-				//System.out.println(); //Hangilerini icinde bulabiliyor.
 				table.add(pattern.length()-k-pattern.substring(0,pattern.length()-1).lastIndexOf(pattern.substring(pattern.length()-k)));
-				//System.out.println(k);
 			}
 			
 			else {
@@ -87,30 +85,26 @@ public class BoyerMoore {
 				
 				else{
 					
-					int index = pattern.substring(0,pattern.length()-1).lastIndexOf(pattern.charAt(pattern.length()-1));
-					//StringBuilder sb = new StringBuilder();
+					int index = pattern.substring(0,k-1).lastIndexOf(pattern.charAt(pattern.length()-1));
+					int lastİndex;
 					int end=0;
 					
 					for(int t = index,j = 1;t>=0;t--,j++) {
 						
-						if(pattern.charAt(pattern.length()-j) == pattern.charAt(t)) {
+						if(pattern.substring(pattern.length()-k).charAt(k-j) == pattern.charAt(t)) {
 							end++;
-							//sb.insert(0,pattern.charAt(t));
 						}
 							
 						else {
-							index = pattern.substring(0,t).lastIndexOf(pattern.charAt(pattern.length()-1));
+							lastİndex = index;
+							index = pattern.substring(0,lastİndex).lastIndexOf(pattern.charAt(pattern.length()-1));
 							t = index + 1;
 							j = 0;
 							end = 0;
-							//sb.setLength(0);
 						}
 					
 					}				
-						table.add(pattern.length()- end);
-						/*String s = sb.toString();
-						//if(pattern.contains(s)){
-						}*/			
+						table.add(pattern.length()- end);		
 				}
 					
 			}				

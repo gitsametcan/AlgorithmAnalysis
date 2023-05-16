@@ -21,15 +21,15 @@ public class Main {
 		hp.print();
 		
 		hp.printTable();
-		BoyerMoore bm = new BoyerMoore(a,b);
+		//BoyerMoore bm = new BoyerMoore(a,b);
 		//System.out.print(a.substring(a.length()-3,a.length()-3+1));
 		//bm.printSuffixTable();
 				
-		//BoyerMoore bm = new BoyerMoore("11101011", html.getHtmlContent());
+		BoyerMoore bm = new BoyerMoore("1011001001101011", html.getHtmlContent());
 				
 				
-		bm.print();
-		//bm.printSuffixTable();
+		//bm.print();
+		bm.printSuffixTable();
 		//System.out.println(bm.getTable());
 		//bm.print();
 		//bm.printTable();
