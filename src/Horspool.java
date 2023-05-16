@@ -3,12 +3,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Horspool {
-	protected String pattern;
-	protected String htmlFile;
-	protected long time;
-	protected HashMap<String, Integer> table;
-	protected List<Integer> indexes;
-	protected int compNumber;
+	private String pattern;
+	private String htmlFile;
+	private long time;
+	private HashMap<String, Integer> table;
+	private List<Integer> indexes;
+	private int compNumber;
 	
 	
 	public Horspool(String pattern, String comeFromFile) {
@@ -73,7 +73,7 @@ public class Horspool {
 			int j = 0;
 			int k = i;
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
-				
+				System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1)+k);
 				comprasion ++;
 				if(j+2==this.pattern.length() && this.htmlFile.substring(k+1, k+2).equals(this.pattern.substring(j+1,j+2))) {
 					temp.add(k - this.pattern.length()+2);

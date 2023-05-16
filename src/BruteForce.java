@@ -26,7 +26,7 @@ public class BruteForce {
 			int j = 0;
 			int k = i;
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
-				
+				System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1) + k);
 				comprasion ++;
 				if(j+2==this.pattern.length() && this.htmlFile.substring(k+1, k+2).equals(this.pattern.substring(j+1,j+2))) {
 					temp.add(k - this.pattern.length()+2);

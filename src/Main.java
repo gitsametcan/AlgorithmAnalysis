@@ -9,14 +9,15 @@ public class Main {
 		
 
 		
-		//BruteForce bc = new BruteForce(a, b);
+		BruteForce bc = new BruteForce(a, b);
 		
-		//bc.print();
+		bc.print();
 				
 		//Horspool hp = new Horspool("baobab", "bess_knew_about_baobabaobabs bess_baobabknew_about_baobabs");
-		Horspool hp = new Horspool(a, b);
+		//Horspool hp = new Horspool(a, b);
 		
-		hp.print();
+		//hp.print();
+		
 		//hp.printTable();
 		//BoyerMoore bm = new BoyerMoore(a,b);
 		//System.out.print(a.substring(a.length()-3,a.length()-3+1));

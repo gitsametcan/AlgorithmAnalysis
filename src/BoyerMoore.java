@@ -2,16 +2,71 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class BoyerMoore extends Horspool {
+public class BoyerMoore {
 	
+	private String pattern;
+	private String htmlFile;
+	private long time;
+	private HashMap<String, Integer> table;
+	private List<Integer> indexes;
+	private int compNumber;
 	private List<Integer> suffix;
 
 	
 	public BoyerMoore(String pattern, String comeFromFile) {
-		super(pattern, comeFromFile);
+		this.pattern = pattern;
+		this.htmlFile = comeFromFile;
+		this.table = generateTable(this.pattern,this.htmlFile);
 		this.suffix = generateSuffixTable(this.pattern);
-		count();
+		this.count();
 	}
+	
+	private HashMap<String, Integer> generateTable(String pattern, String htmlFile) {
+		
+		HashMap<String, Integer> table = new HashMap<String, Integer>();
+		
+		htmlFile = withOutDublicate(htmlFile);
+		
+		
+		for(int i = 0; i<htmlFile.length();i++) {
+			
+			if (!isThere(htmlFile.substring(i,i+1), pattern)) { table.put(htmlFile.substring(i,i+1), pattern.length());
+			
+			}
+			else {				
+				int k = 1;
+				int l = pattern.length()-2;
+				while(!htmlFile.substring(i,i+1).equals(pattern.substring(l,l+1))) {
+					k++;
+					l--;
+					if(l<0)break;
+				}
+				table.put(htmlFile.substring(i,i+1), k);
+			}
+		}
+		return table;
+	}
+	
+	private boolean isThere(String a, String pattern) {
+		boolean isThere = false;
+		for (int i = 0; i<pattern.length();i++) {
+			if (pattern.substring(i,i+1).equals(a)) isThere = true;
+		}		
+		return isThere;
+	}
+	
+	private String withOutDublicate(String string) {
+		String temp = "";
+		for(int i = 0; i<string.length(); i++) {
+			boolean isThere = false;
+			for(int j = 0; j<temp.length(); j++) {
+				if(string.substring(i, i+1).equals(temp.substring(j,j+1))) isThere = true;
+			}
+			if (!isThere) temp = temp + string.substring(i, i+1);
+		}
+		return temp;	
+	}
+	
 	
 	private List<Integer> generateSuffixTable(String pattern) {
 		
@@ -20,9 +75,9 @@ public class BoyerMoore extends Horspool {
 		for(k=1;k<=pattern.length();k++) {
 			
 			if(pattern.substring(0,pattern.length()-1).contains((pattern.substring(pattern.length()-k))) ) {
-				System.out.println(); //Hangilerini içinde bulabiliyor.
+				//System.out.println(); //Hangilerini icinde bulabiliyor.
 				table.add(pattern.length()-k-pattern.substring(0,pattern.length()-1).lastIndexOf(pattern.substring(pattern.length()-k)));
-				System.out.println(k);
+				//System.out.println(k);
 			}
 			
 			else {
@@ -63,6 +118,7 @@ public class BoyerMoore extends Horspool {
 			return table;
 	}
 	
+	
 	private void count() {
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
@@ -72,22 +128,23 @@ public class BoyerMoore extends Horspool {
 		while(i<=this.htmlFile.length() - this.pattern.length()) {	
 			int j = 0;
 			int k = i;
-			//System.out.println("kictaki = " +this.htmlFile.substring(k, k+1));
+			System.out.println("kictaki = " +this.htmlFile.substring(k, k+1));
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
-				
+				System.out.println("girdi"+this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1)+k);
 				comprasion ++;
 				if(j+2==this.pattern.length() && this.htmlFile.substring(k+1, k+2).equals(this.pattern.substring(j+1,j+2))) {
 					temp.add(k - this.pattern.length()+2);
 				}
 				j++;
-				k++;
-				System.out.println(this.htmlFile.substring(k-1, k) +"  =  " + this.pattern.substring(j-1,j));
+				k--;
+				
 			}
-			System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1));
+			//System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1));
 			comprasion ++;
-			//System.out.println("aranan =" + this.htmlFile.substring(i-j, i-j+1));
-			//System.out.println("j = "+ j);
+			System.out.println("aranan =" + this.htmlFile.substring(i-j, i-j+1));
+			System.out.println("j = "+ j);
 			int l = table.get(this.htmlFile.substring(i-j, i-j+1)) - j;
+			
 			
 			int m = 0;
 			if ( j == 0) m = this.suffix.get(pattern.length()-1);
