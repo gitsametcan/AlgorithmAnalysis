@@ -123,36 +123,39 @@ public class BoyerMoore {
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
-		System.out.print(table);
-		int i = pattern.length()-1;
+		//System.out.print(table);
+		int i = 0;
 		while(i<=this.htmlFile.length() - this.pattern.length()) {	
-			int j = 0;
-			int k = i;
-			System.out.println("kictaki = " +this.htmlFile.substring(k, k+1));
-			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j+1!=this.pattern.length()) {
-				System.out.println("girdi"+this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1)+k);
+			int j = this.pattern.length()-1;
+			int n = 0;
+			int k = i + this.pattern.length()-1 ;
+			//System.out.println("kictaki = " +this.htmlFile.substring(i + this.pattern.length()-1, i + this.pattern.length()));
+			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j!=0) {
+				//System.out.println("girdi"+this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1));
 				comprasion ++;
-				if(j+2==this.pattern.length() && this.htmlFile.substring(k+1, k+2).equals(this.pattern.substring(j+1,j+2))) {
-					temp.add(k - this.pattern.length()+2);
+				if(j==1 && this.htmlFile.substring(k-1, k).equals(this.pattern.substring(j-1,j))) {
+					temp.add(i);
+					n++;
 				}
-				j++;
+				j--;
 				k--;
+				n++;
 				
 			}
-			//System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1));
+			//System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(n,n+1));
 			comprasion ++;
-			System.out.println("aranan =" + this.htmlFile.substring(i-j, i-j+1));
-			System.out.println("j = "+ j);
-			int l = table.get(this.htmlFile.substring(i-j, i-j+1)) - j;
+			//System.out.println("aranan =" + this.htmlFile.substring(i + this.pattern.length()-1-n, i + this.pattern.length()-n));
+			//System.out.println("n = "+ n);
+			int l = table.get(this.htmlFile.substring(i + this.pattern.length()-1-n, i + this.pattern.length()-n)) - n;
 			
 			
 			int m = 0;
-			if ( j == 0) m = this.suffix.get(pattern.length()-1);
-			else m = this.suffix.get(j-1);
+			if (n == pattern.length()) m = this.suffix.get(pattern.length()-1);
+			else if (n==0) m=0;
+			else m = this.suffix.get(n-1);
 			
-			if (j==this.pattern.length()) i++;
-			else i += Math.max(l,m);
-			System.out.println("d is =" +l +" d2 is ="+ m +" jump is =" + Math.max(l,m) );
+			i += Math.max(l,m);
+			//System.out.println("d is =" +l +" d2 is ="+ m +" jump is =" + Math.max(l,m) );
 		}
 		
 		this.time = System.currentTimeMillis() - startTime;
@@ -172,5 +175,10 @@ public class BoyerMoore {
 	public void print() {
 		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.compNumber + " matching number is " + this.indexes.size() +" algorithm is BoyerMoore");
 	}
+
+	public HashMap<String, Integer> getTable() {
+		return table;
+	}
+	
 
 }
