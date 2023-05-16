@@ -25,7 +25,7 @@ public class Main {
 		//System.out.print(a.substring(a.length()-3,a.length()-3+1));
 		//bm.printSuffixTable();
 				
-		BoyerMoore bm = new BoyerMoore("1011001001101011", html.getHtmlContent());
+		BoyerMoore bm = new BoyerMoore("10110010011011111111", html.getHtmlContent());
 				
 				
 		//bm.print();

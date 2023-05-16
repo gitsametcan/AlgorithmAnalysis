@@ -80,8 +80,9 @@ public class BoyerMoore {
 			
 			else {
 				
-				if(k==1)
+				if(k==1) {
 					table.add(pattern.length());
+				}
 				
 				else{
 					
