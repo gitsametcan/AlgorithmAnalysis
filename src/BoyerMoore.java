@@ -158,7 +158,9 @@ public class BoyerMoore {
 	}
 	
 	public void printSuffixTable() {
-		System.out.println("\nThe suffix table is:\n" + suffix);
+		System.out.println("Suffix table is = ");
+		for ( int i = 0; i<this.suffix.size(); i++)
+			System.out.println((i+1) + " = " + this.suffix.get(i) + " \n ----");
 		
 	}
 
@@ -247,11 +249,8 @@ public class BoyerMoore {
 				i++;
 			}
 		}
-		System.out.println();
-		
-		
-	
-		
+		System.out.println("");
+		System.out.println("* sign mean the character is new line or tab");
 		
 	}
 	

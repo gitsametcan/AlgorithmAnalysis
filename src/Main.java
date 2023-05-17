@@ -4,6 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		System.out.println("First of all program will calculate given example at note 5 and than start calculate with choosens!!");
+		
+		System.out.println("Results for given example=");
 		String example = "<HTML><BODY>WHICH_FINALLY_HALTS. _ _ AT_THAT POINT</BODY></HTML>";
 		String patten = "AT_THAT";
 		BruteForce bfe = new BruteForce(patten, example);
@@ -12,7 +15,7 @@ public class Main {
 		hpe.print();
 		BoyerMoore bme = new BoyerMoore(patten, example);
 		bme.print();
-		System.out.println(example.length() + " " + patten.length());
+		System.out.println();
 		
 		Scanner scanner = new Scanner(System.in);
 		int exit  = 0;

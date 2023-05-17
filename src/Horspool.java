@@ -160,7 +160,8 @@ public class Horspool {
 				i++;
 			}
 		}
-		System.out.println();
+		System.out.println("");
+		System.out.println("* sign mean the character is new line or tab");
 		
 		
 	
