@@ -12,6 +12,7 @@ public class Main {
 		hpe.print();
 		BoyerMoore bme = new BoyerMoore(patten, example);
 		bme.print();
+		System.out.println(example.length() + " " + patten.length());
 		
 		Scanner scanner = new Scanner(System.in);
 		int exit  = 0;
