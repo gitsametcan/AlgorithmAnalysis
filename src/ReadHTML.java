@@ -19,7 +19,7 @@ public class ReadHTML {
 				String line = scanner.nextLine();
 				
 				str.append(line);
-				str.append(System.getProperty("line.separator"));
+				str.append(System.getProperty("line.separator"));//We decided to add line separator as a character
 				
 				 	   	   
 			}
@@ -33,7 +33,7 @@ public class ReadHTML {
 	
 	private void writeHTML(String output) {
 		try {
-			FileWriter writer = new FileWriter("output.html"); 
+			FileWriter writer = new FileWriter("output.html"); // our output file is output.html
 			writer.write(output);
 			
 			writer.close();
@@ -51,7 +51,7 @@ public class ReadHTML {
             int index = jump + indexes.get(i);
             sb.insert(index, "<mark>");
             sb.insert(index + length + 6, "</mark>");
-            jump += 13;   
+            jump += 13;   //After every transaction indexes should decrease 13 
         }
         writeHTML(sb.toString());
     }

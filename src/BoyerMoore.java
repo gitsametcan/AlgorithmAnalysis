@@ -140,15 +140,15 @@ public class BoyerMoore {
 			
 			comprasion ++;
 			
-			int l = table.get(this.htmlFile.substring(i + this.pattern.length()-1-n, i + this.pattern.length()-n)) - n;
+			int l = table.get(this.htmlFile.substring(i + this.pattern.length()-1-n, i + this.pattern.length()-n)) - n;// this is d1 in lecture slides
 			
 			
 			int m = 0;
-			if (n == pattern.length()) m = this.suffix.get(pattern.length()-1);
-			else if (n==0) m=0;
+			if (n == pattern.length()) m = this.suffix.get(pattern.length()-1);//in match situations we take the last element in suffix table
+			else if (n==0) m=0;// if there is no any matching character d2=0
 			else m = this.suffix.get(n-1);
 			
-			i += Math.max(l,m);
+			i += Math.max(l,m);//Jump amount is bigger one of d1 and d2
 			
 		}
 		

@@ -44,6 +44,7 @@ public class BruteForce {
 	}
 	
 	public void print() {
+		//The index size is used for number of matching.
 		System.out.println("Comparison time is " + this.time + "(ms) comparison number is " + this.comp + " matching number is " + this.indexes.size() +" algorithm is Brute Force");
 	}
 	

@@ -22,11 +22,11 @@ public class Horspool {
 		
 		HashMap<String, Integer> table = new HashMap<String, Integer>();
 		
-		htmlFile = withOutDublicate(htmlFile);
+		htmlFile = withOutDublicate(htmlFile);//Table shouldn't include dublicate
 		
 		
 		for(int i = 0; i<htmlFile.length();i++) {
-			
+			// if character is not inside the pattern directly add pattern length
 			if (!isThere(htmlFile.substring(i,i+1), pattern)) { table.put(htmlFile.substring(i,i+1), pattern.length());
 			
 			}
@@ -82,7 +82,7 @@ public class Horspool {
 				k--;
 			}
 			comprasion ++;
-			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));	
+			i += table.get(htmlFile.substring(i + pattern.length() - 1, i + pattern.length()));	//Just jump amount is different from BruteForce
 		}
 		
 		this.time = System.currentTimeMillis() - startTime;
