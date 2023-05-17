@@ -41,8 +41,7 @@ public class Main {
 					+ "2 = Use Horspool Algorithm, create output file and see table\n"
 					+ "3 = Use BoyerMoore Algorithm, create output file and see tables \n"
 					+ "4 = Compare all algorithms \n"
-					+ "5 = Exit \n"
-					+ "Write just 1,2,3,4 or 5 =");
+					+ "Write just 1,2,3 or 4 =");
 			int Choose = scanner.nextInt();
 			System.out.println("Please give pattern=");
 			String b = scanner.next();
