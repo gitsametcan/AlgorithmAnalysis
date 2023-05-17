@@ -4,6 +4,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		String example = "<HTML><BODY>WHICH_FINALLY_HALTS. _ _ AT_THAT POINT</BODY></HTML>";
+		String patten = "AT_THAT";
+		BruteForce bfe = new BruteForce(patten, example);
+		bfe.print();
+		Horspool hpe = new Horspool(patten, example);
+		hpe.print();
+		BoyerMoore bme = new BoyerMoore(patten, example);
+		bme.print();
+		
 		Scanner scanner = new Scanner(System.in);
 		int exit  = 0;
 		while (exit == 0) {
