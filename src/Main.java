@@ -21,7 +21,6 @@ public class Main {
 				a = "typetwoinput";
 			}
 			
-			System.out.println(a);
 			ReadHTML html = new ReadHTML(a);
 			
 			System.out.println("Choose one  \n"
@@ -64,7 +63,8 @@ public class Main {
 			}
 			System.out.println("Exit or try again \n"
 					+ "1 = Exit \n"
-					+ "2 = Try again");
+					+ "2 = Try again \n"
+					+ "Write just 1 or 2 =");
 			if(scanner.nextInt() == 1) exit = 23;
 		}
 		
