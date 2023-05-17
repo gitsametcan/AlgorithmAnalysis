@@ -118,15 +118,15 @@ public class BoyerMoore {
 		int comprasion = 0;
 		List<Integer> temp = new ArrayList();
 		long startTime = System.currentTimeMillis();
-		//System.out.print(table);
+		
 		int i = 0;
 		while(i<=this.htmlFile.length() - this.pattern.length()) {	
 			int j = this.pattern.length()-1;
 			int n = 0;
 			int k = i + this.pattern.length()-1 ;
-			//System.out.println("kictaki = " +this.htmlFile.substring(i + this.pattern.length()-1, i + this.pattern.length()));
+			
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j!=0) {
-				//System.out.println("girdi"+this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1));
+				
 				comprasion ++;
 				if(j==1 && this.htmlFile.substring(k-1, k).equals(this.pattern.substring(j-1,j))) {
 					temp.add(i);
@@ -137,10 +137,9 @@ public class BoyerMoore {
 				n++;
 				
 			}
-			//System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(n,n+1));
+			
 			comprasion ++;
-			//System.out.println("aranan =" + this.htmlFile.substring(i + this.pattern.length()-1-n, i + this.pattern.length()-n));
-			//System.out.println("n = "+ n);
+			
 			int l = table.get(this.htmlFile.substring(i + this.pattern.length()-1-n, i + this.pattern.length()-n)) - n;
 			
 			
@@ -150,7 +149,7 @@ public class BoyerMoore {
 			else m = this.suffix.get(n-1);
 			
 			i += Math.max(l,m);
-			//System.out.println("d is =" +l +" d2 is ="+ m +" jump is =" + Math.max(l,m) );
+			
 		}
 		
 		this.time = System.currentTimeMillis() - startTime;
@@ -173,6 +172,87 @@ public class BoyerMoore {
 
 	public HashMap<String, Integer> getTable() {
 		return table;
+	}
+
+	public List<Integer> getIndexes() {
+		return indexes;
+	}
+	
+	public void printTable() {
+		System.out.println("Table is:");
+		String tempPattern = "";
+		for (int i = 0; i < pattern.length(); i++) {
+			for (int j = 0; j < this.table.toString().length(); j = j + 5) {
+				
+			if (!(this.table.toString().substring(j + 1, j + 2).equals(this.pattern.substring(i , i + 1))) && !(tempPattern.contains(this.pattern.substring(i , i + 1)))) {
+				if ((this.table.toString().substring(j + 1, j + 3).equals("\n"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\r"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\n"))) {
+				tempPattern += this.pattern.substring(i , i + 1);
+				j++;
+				}
+				if (!(this.table.containsKey(this.pattern.substring(i , i + 1)))) {
+				this.table.put(this.pattern.substring(i , i + 1), pattern.length());
+				
+				}
+				break;
+			}
+			else if ((this.table.toString().substring(j + 1, j + 2).equals(this.pattern.substring(i , i + 1))) && !(tempPattern.contains(this.pattern.substring(i , i + 1)))) {
+				if ((this.table.toString().substring(j + 1, j + 3).equals("\n"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\r"))
+						|| (this.table.toString().substring(j + 1, j + 3).equals("\n"))) {
+				tempPattern += this.pattern.substring(i , i + 1);
+				j++;
+				}
+			}
+			else {
+				if (!(tempPattern.contains(this.pattern.substring(i, i + 1))) || !(tempPattern.contains((this.table.toString().substring(j + 1, j + 2))))) {
+					if ((this.table.toString().substring(j + 1, j + 3).equals("\n"))
+							|| (this.table.toString().substring(j + 1, j + 3).equals("\r"))
+							|| (this.table.toString().substring(j + 1, j + 3).equals("\n"))) {
+						tempPattern += this.table.toString().substring(j + 1, j + 3);
+						j++;
+					}
+						
+				}
+			}
+			
+			
+		}
+	}
+		
+        for (int i = 1; i < this.table.keySet().toString().length(); i = i + 3) {
+			
+			if (this.table.keySet().toString().charAt(i) == '\n'
+				||this.table.keySet().toString().charAt(i) == '\r'
+				||this.table.keySet().toString().charAt(i) == '\t') {
+				System.out.print("*" + " |");
+			}
+			else
+				System.out.print(this.table.keySet().toString().charAt(i) + " |");
+			
+		}
+		System.out.println();
+		for (int i = 1; i < this.table.values().toString().length(); i = i + 3) {
+			if (this.table.values().toString().charAt(i + 1) == ']') {
+				System.out.print(this.table.values().toString().charAt(i)  + " |");
+				break;
+			}
+			if (this.table.values().toString().charAt(i + 1) == ',') {
+			System.out.print(this.table.values().toString().charAt(i) + " |");
+			}
+			else {
+				
+				System.out.print(this.table.values().toString().substring(i, i + 2)  + "|");
+				i++;
+			}
+		}
+		System.out.println();
+		
+		
+	
+		
+		
 	}
 	
 

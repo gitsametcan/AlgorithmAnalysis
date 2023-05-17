@@ -73,7 +73,7 @@ public class Horspool {
 			int j = this.pattern.length()-1;
 			int k = i + this.pattern.length()-1 ;
 			while (this.htmlFile.substring(k, k+1).equals(this.pattern.substring(j,j+1)) && j!=0) {
-				//System.out.println(this.htmlFile.substring(k, k+1) +"  =  " + this.pattern.substring(j,j+1)+k);
+				
 				comprasion ++;
 				if(j==1 && this.htmlFile.substring(k-1, k).equals(this.pattern.substring(j-1,j))) {
 					temp.add(i);
